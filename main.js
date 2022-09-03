@@ -1,5 +1,7 @@
+nosex=0;
+nosey=0
 function preload(){
-
+mustage_pic=loadImage("https://i.postimg.cc/y8qB5kY3/m.png")
 }
 
 function setup(){
@@ -10,9 +12,14 @@ video.size(300,300);
 video.hide();
 posenet=ml5.poseNet(video,modelloaded);
 posenet.on("pose",gotposes);
+}
 function takesnapshot(){
    save("Mypicture.png");
 }
+
+function draw(){
+   image(video,0,0,300,300);
+   image(mustage_pic,nosex,nosey,60,60);
 }
 
 function modelloaded(){
@@ -22,11 +29,12 @@ function modelloaded(){
 function gotposes(results){
    if(results.length>0)
 {
-   console.log(results);
-   console.log("NoseX= "+results[0].pose.nose.x);
-   console.log("NoseY= "+results[0].pose.nose.y);
-}
+   nosex=results[0].pose.nose.x-30;
 
-   
+   nosey=results[0].pose.nose.y-15;
+
+   console.log("NoseX= "+nosex);
+   console.log("NoseY= "+nosey);
+}
 
 }
