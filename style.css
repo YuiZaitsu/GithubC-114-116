@@ -1,0 +1,22 @@
+body{
+background-image:url("pexels-pixabay-531880.jpg");
+}
+
+h2{
+    font-size: 30px !important;
+}
+
+.btn-success:hover{
+    background-color: brown;
+}
+
+canvas{
+    animation-name:karthikeyan ;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes karthikeyan{
+    from{box-shadow:2px 2px 38px Red;}
+    to{box-shadow:2px 2px 38px blue;}
+}
